@@ -21,5 +21,22 @@ puts Store.count
 yaletown =  Store.create(name: 'Yaletown', annual_revenue: 430000, mens_apparel: true, womens_apparel: true)
 puts Store.count
 
+puts '---***************men******************---'
 @mens_stores = Store.where(mens_apparel: true).order(created_at: :desc)
-p @mens_stores
+
+@mens_stores.each do |store|
+  puts '------------------------'
+  puts store.name
+  puts store.annual_revenue
+  puts '------------------------'
+end
+
+puts '---***************women******************---'
+@womens_stores = Store.where("annual_revenue < 1000000", womens_apparel: true).order(created_at: :desc)
+
+@womens_stores.each do |store|
+  puts '------------------------'
+  puts store.name
+  puts store.annual_revenue
+  puts '------------------------'
+end
