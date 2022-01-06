@@ -5,3 +5,10 @@ puts "Exercise 2"
 puts "----------"
 
 # Your code goes here ...
+# david = User.find_by(name: 'David')
+
+@store1 = Store.find_by(id: 1)
+@store1.name = 'WestPoint'
+@store1.save
+
+@store2 = Store.find_by(id: 2)
